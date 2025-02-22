@@ -1,0 +1,232 @@
+{
+  "musicos": [
+    {
+      "id": "1",
+      "nombre": "John Mayer",
+      "genero": "Pop Rock",
+      "nacionalidad": "Estadounidense",
+      "anio_debut": 1998,
+      "instrumentos": [
+        "Guitarra",
+        "Voz",
+        "Piano"
+      ],
+      "premios": [
+        "Grammy",
+        "Billboard Music Award"
+      ],
+      "retirado": false,
+      "imagen_url": "./../assets/musicos/jhon_mayer.jpeg",
+      "ubicacion": {
+        "pais": "Estados Unidos",
+        "ciudad": "Bridgeport",
+        "coordenadas": {
+          "latitud": 41.1865,
+          "longitud": -73.1952
+        }
+      }
+    },
+    {
+      "id": "2",
+      "nombre": "Adele",
+      "genero": "Soul",
+      "nacionalidad": "Británica",
+      "anio_debut": 2006,
+      "instrumentos": [
+        "Voz"
+      ],
+      "premios": [
+        "Grammy",
+        "Oscar",
+        "Brit Award"
+      ],
+      "retirado": false,
+      "imagen_url": "./../assets/musicos/adele.png",
+      "ubicacion": {
+        "pais": "Reino Unido",
+        "ciudad": "Londres",
+        "coordenadas": {
+          "latitud": 51.5074,
+          "longitud": -0.1278
+        }
+      }
+    },
+    {
+      "id": "3",
+      "nombre": "Kendrick Lamar",
+      "genero": "Hip-Hop",
+      "nacionalidad": "Estadounidense",
+      "anio_debut": 2004,
+      "instrumentos": [
+        "Voz"
+      ],
+      "premios": [
+        "Grammy",
+        "Pulitzer Prize"
+      ],
+      "retirado": false,
+      "imagen_url": "./../assets/musicos/kendrick_lamar.jpg",
+      "ubicacion": {
+        "pais": "Estados Unidos",
+        "ciudad": "Compton",
+        "coordenadas": {
+          "latitud": 33.8958,
+          "longitud": -118.2201
+        }
+      }
+    },
+    {
+      "id": "4",
+      "nombre": "Taylor Swift",
+      "genero": "Pop",
+      "nacionalidad": "Estadounidense",
+      "anio_debut": 2006,
+      "instrumentos": [
+        "Voz",
+        "Guitarra",
+        "Piano"
+      ],
+      "premios": [
+        "Grammy",
+        "Billboard Music Award",
+        "MTV Video Music Award"
+      ],
+      "retirado": false,
+      "imagen_url": "./../assets/musicos/taylor_swift.png",
+      "ubicacion": {
+        "pais": "Estados Unidos",
+        "ciudad": "Reading",
+        "coordenadas": {
+          "latitud": 40.3356,
+          "longitud": -75.9269
+        }
+      }
+    },
+    {
+      "id": "5",
+      "nombre": "Daft Punk",
+      "genero": "Electrónica",
+      "nacionalidad": "Francesa",
+      "anio_debut": 1993,
+      "instrumentos": [
+        "Sintetizadores",
+        "Drum Machines"
+      ],
+      "premios": [
+        "Grammy"
+      ],
+      "retirado": true,
+      "imagen_url": "./../assets/musicos/daft_punk.jpg",
+      "ubicacion": {
+        "pais": "Francia",
+        "ciudad": "París",
+        "coordenadas": {
+          "latitud": 48.8566,
+          "longitud": 2.3522
+        }
+      }
+    }
+  ],
+  "albumes": [
+    {
+      "id": "101",
+      "musico_id": "1",
+      "titulo": "Room for Squares",
+      "anio_lanzamiento": 2001,
+      "canciones": 13,
+      "duracion_total": "49:45",
+      "genero": "Pop Rock",
+      "imagen_url": "./../assets/albumes/room_for_squares.jpg"
+    },
+    {
+      "id": "102",
+      "musico_id": "1",
+      "titulo": "Continuum",
+      "anio_lanzamiento": 2006,
+      "canciones": 12,
+      "duracion_total": "49:22",
+      "genero": "Blues Rock",
+      "imagen_url": "./../assets/albumes/continuum.jpg"
+    },
+    {
+      "id": "201",
+      "musico_id": "2",
+      "titulo": "21",
+      "anio_lanzamiento": 2011,
+      "canciones": 11,
+      "duracion_total": "48:01",
+      "genero": "Soul",
+      "imagen_url": "./../assets/albumes/21.jpg"
+    },
+    {
+      "id": "202",
+      "musico_id": "2",
+      "titulo": "25",
+      "anio_lanzamiento": 2015,
+      "canciones": 11,
+      "duracion_total": "45:30",
+      "genero": "Soul Pop",
+      "imagen_url": "./../assets/albumes/25.jpg"
+    },
+    {
+      "id": "301",
+      "musico_id": "3",
+      "titulo": "good kid, m.A.A.d city",
+      "anio_lanzamiento": 2012,
+      "canciones": 12,
+      "duracion_total": "68:36",
+      "genero": "Hip-Hop",
+      "imagen_url": "./../assets/albumes/good_kid_m-A-A-d_city.jpg"
+    },
+    {
+      "id": "302",
+      "musico_id": "3",
+      "titulo": "To Pimp a Butterfly",
+      "anio_lanzamiento": 2015,
+      "canciones": 16,
+      "duracion_total": "78:51",
+      "genero": "Hip-Hop/Funk",
+      "imagen_url": "./../assets/albumes/to_pimp_a_butterfly.jpg"
+    },
+    {
+      "id": "401",
+      "musico_id": "4",
+      "titulo": "1989",
+      "anio_lanzamiento": 2014,
+      "canciones": 13,
+      "duracion_total": "48:41",
+      "genero": "Pop",
+      "imagen_url": "./../assets/albumes/1989.jpg"
+    },
+    {
+      "id": "402",
+      "musico_id": "4",
+      "titulo": "Red (Taylor's Version)",
+      "anio_lanzamiento": 2021,
+      "canciones": 30,
+      "duracion_total": "130:26",
+      "genero": "Pop Country",
+      "imagen_url": "./../assets/albumes/red.jpg"
+    },
+    {
+      "id": "501",
+      "musico_id": "5",
+      "titulo": "Discovery",
+      "anio_lanzamiento": 2001,
+      "canciones": 14,
+      "duracion_total": "60:00",
+      "genero": "House",
+      "imagen_url": "./../assets/albumes/discovery.jpg"
+    },
+    {
+      "id": "502",
+      "musico_id": "5",
+      "titulo": "Random Access Memories",
+      "anio_lanzamiento": 2013,
+      "canciones": 13,
+      "duracion_total": "74:24",
+      "genero": "Electro-Funk",
+      "imagen_url": "./../assets/albumes/random_access_memories.jpg"
+    }
+  ]
+}

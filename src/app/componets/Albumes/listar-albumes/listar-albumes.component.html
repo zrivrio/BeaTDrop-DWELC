@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>Álbumes</h1>
+  <a [routerLink]="['/albumes/crear']" class="btn btn-customA">Crear Álbum</a>
+
+  <div class="albumes-container mt-5">
+    <!-- Iterar sobre cada músico -->
+    <div *ngFor="let musico of musicos" class="musico-card mb-5">
+      <h3>{{ musico.nombre }}</h3>
+
+      <div class="d-flex flex-wrap justify-content-evenly">
+        <!-- Filtrar y mostrar los álbumes del músico actual -->
+        <div *ngFor="let album of getAlbumesByMusicoId(musico.id)" class="album-card mb-4 col-12 col-md-5">
+          <h5>{{ album.titulo }}</h5>
+          <p><strong>Año de Lanzamiento:</strong> {{ album.anio_lanzamiento }}</p>
+          <p><strong>Canciones:</strong> {{ album.canciones }}</p>
+          <p><strong>Duración Total:</strong> {{ album.duracion_total }}</p>
+          <p><strong>Género:</strong> {{ album.genero }}</p>
+          <img [src]="album.imagen_url" alt="{{ album.titulo }}" class="img-fluid mt-2">
+
+          <p>
+            <a [routerLink]="['/albumes/editar', album.id]" class="btn btn-customA mt-4">Editar</a>
+            <button class="btn btn-customA mt-4" (click)="deleteAlbum(album.id)" >Eliminar</button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
