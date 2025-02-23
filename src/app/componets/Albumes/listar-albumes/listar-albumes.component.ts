@@ -1,6 +1,4 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { NavbarComponent } from '../../navbar/navbar.component';
-import { FooterComponent } from '../../footer/footer.component';
 import { AlbumesService } from '../../../services/albumes.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -12,7 +10,7 @@ import { Album } from '../../../models/albumes';
 
 @Component({
   selector: 'app-listar-albumes',
-  imports: [NavbarComponent, FooterComponent, CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './listar-albumes.component.html',
   styleUrl: './listar-albumes.component.css'
 })
@@ -44,9 +42,8 @@ export class ListarAlbumesComponent implements OnInit {
 
   // Función para eliminar los álbumes
   deleteAlbum(id: number): void {
-    this.albumesService.deleteAlbum(id).subscribe(() => {
-      this.albumes = this.albumes.filter((album) => album.id !== id);
-    });
+   this.albumes = this.albumes.filter((album) => album.id !== id);
+   console.log(this.albumes);
   }
 
   

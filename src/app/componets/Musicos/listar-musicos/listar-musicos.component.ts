@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from '../../navbar/navbar.component';
-import { FooterComponent } from "../../footer/footer.component";
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Musico } from '../../../models/musicos';
@@ -8,7 +6,7 @@ import { MusicosService } from '../../../services/musicos.service';
 
 @Component({
   selector: 'app-listar-musicos',
-  imports: [NavbarComponent, FooterComponent, RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './listar-musicos.component.html',
   styleUrl: './listar-musicos.component.css'
 })

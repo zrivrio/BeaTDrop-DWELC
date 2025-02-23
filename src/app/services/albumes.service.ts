@@ -42,10 +42,9 @@ export class AlbumesService {
 
   updateAlbum(album: Album) { return this.http.put<Album>(`${this.url}/${album.id}`, album); }
 
+  //Funciona cuando los datos ya ha sido cargados anteriormente y añades un nuevo álbum no se elimina
   deleteAlbum(id: number) {
-    return this.http.delete(`${this.url}/${id}`, {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-    });
+    return this.http.delete(`${this.url}/${id}`);
   }
 
 }

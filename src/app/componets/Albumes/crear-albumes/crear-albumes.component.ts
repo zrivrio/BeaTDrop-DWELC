@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from '../../navbar/navbar.component';
-import { FooterComponent } from '../../footer/footer.component';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { AlbumesService } from '../../../services/albumes.service';
 import { MusicosService } from '../../../services/musicos.service';
@@ -10,7 +8,7 @@ import { Album } from '../../../models/albumes';
 
 @Component({
   selector: 'app-crear-albumes',
-  imports: [NavbarComponent, FooterComponent, ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './crear-albumes.component.html',
   styleUrl: './crear-albumes.component.css'
 })
