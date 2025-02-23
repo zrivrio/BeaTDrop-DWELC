@@ -1,3 +1,40 @@
-
-<p>editar-albumes works!</p>
+<div class="container my-4">
+    <form id="album-form" [formGroup]="albumForm" (ngSubmit)="onSubmit()">
+        <h1>Agregar Álbum Nuevo</h1>
+      <div class="mb-4">
+        <label for="musico_id">Músico</label>
+        <select class="form-control" id="musico_id" formControlName="musico_id" required>
+          <option value="" disabled selected>Selecciona un músico</option>
+          <option *ngFor="let musico of musicos" [value]="musico.id">{{ musico.nombre }}</option>
+        </select>
+      </div>
+      <div class="mb-4">
+        <label for="titulo">Título</label>
+        <input type="text" class="form-control" id="titulo" formControlName="titulo" placeholder="Título del álbum" required>
+      </div>
+      <div class="mb-4">
+        <label for="anio_lanzamiento">Año de Lanzamiento</label>
+        <input type="number" class="form-control" id="anio_lanzamiento" formControlName="anio_lanzamiento" placeholder="Año de lanzamiento" required min="1900">
+      </div>
+      <div class="mb-4">
+        <label for="canciones">Número de Canciones</label>
+        <input type="number" class="form-control" id="canciones" formControlName="canciones" placeholder="Número de canciones" required min="1">
+      </div>
+      <div class="mb-4">
+        <label for="canciones">Duracion del Album</label>
+        <input type="time" class="form-control" id="duracion_total" formControlName="duracion_total" placeholder="Duracion del album (MM:SS)" required>
+      </div>
+      <div class="mb-4">
+        <label for="genero">Género</label>
+        <input type="text" class="form-control" id="genero" formControlName="genero" placeholder="Género del álbum" required>
+      </div>
+      <div class="mb-4">
+        <label for="imagen_url" class="form-label">Imagen del álbum</label>
+        <input type="text" class="form-control" id="imagen_url" formControlName="imagen_url" placeholder="URL de la Imagen" required>
+       <!-- <input type="file" class="form-control-file" id="imagen_url" (change)="onFileChange($event)">-->
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="albumForm.invalid">Agregar Álbum</button>
+    </form>
+  </div>
 

@@ -46,7 +46,4 @@ export class ListarAlbumesComponent implements OnInit {
    console.log(this.albumes);
   }
 
-  
-
-
 }
