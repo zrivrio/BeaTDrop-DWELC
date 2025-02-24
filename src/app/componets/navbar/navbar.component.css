@@ -1,0 +1,70 @@
+/* Contenedor principal de la cabecera */
+header {
+    background: #121212; /* Fondo oscuro para elegancia */
+    padding: 15px 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+  }
+  
+  /* Contenedor flexible para alinear elementos */
+  .cabecera-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Logo y nombre */
+  .img-cabecera {
+    width: 50px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .img-cabecera:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Nombre de la cabecera */
+  .nombre-cabecera {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: white;
+    text-shadow: 0 0 10px #1174d4, 0 0 20px #1174d4;
+    margin-left: 10px;
+    transition: text-shadow 0.3s ease-in-out;
+  }
+  
+  .nombre-cabecera:hover {
+    text-shadow: 0 0 15px #1174d4, 0 0 30px #1174d4;
+  }
+  
+  /* Links de navegación */
+  .relaciones-cabecera {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  }
+  
+  .relaciones-cabecera:hover {
+    color: #f47c64;
+    transform: scale(1.05);
+  }
+  
+  /* Adaptación para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .cabecera-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .nombre-cabecera {
+      font-size: 1.8rem;
+    }
+  
+    .relaciones-cabecera {
+      padding: 8px;
+    }
+  }
+  

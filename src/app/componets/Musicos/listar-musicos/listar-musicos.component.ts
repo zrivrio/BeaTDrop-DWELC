@@ -60,7 +60,7 @@ export class ListarMusicosComponent implements OnInit, AfterViewInit {
 
         // Definir un icono personalizado
         const iconoMusico = L.icon({
-          iconUrl: 'assets/icono-musico.png',
+          iconUrl: 'assets/marcador.png',
           iconSize: [40, 40],
           iconAnchor: [20, 40],
           popupAnchor: [0, -40]
@@ -77,7 +77,6 @@ export class ListarMusicosComponent implements OnInit, AfterViewInit {
   }
 
   deleteMusico(id: number){
-
     this.musicos = this.musicos.filter(musico => musico.id !== id);
     this.musicosService.deleteMusico(id).subscribe();
   }

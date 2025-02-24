@@ -1,12 +1,12 @@
 <app-navbar></app-navbar>
 <div class="container my-5">
   <div class="card shadow-lg p-4">
-    <h1 class="text-center mb-4 text-primary">🎵 Agregar Nuevo Álbum</h1>
+    <h1 class="text-center mb-4 text-primary"> Agregar Nuevo Álbum</h1>
 
     <form [formGroup]="albumForm" (ngSubmit)="onSubmit()">
       <!-- Músico -->
       <div class="mb-3">
-        <label for="musico_id" class="form-label">🎤 Músico</label>
+        <label for="musico_id" class="form-label">Músico</label>
         <select class="form-select" id="musico_id" formControlName="musico_id" required>
           <option value="" disabled selected>Selecciona un músico</option>
           <option *ngFor="let musico of musicos" [value]="musico.id">{{ musico.nombre }}</option>
@@ -15,45 +15,45 @@
 
       <!-- Título -->
       <div class="mb-3">
-        <label for="titulo" class="form-label">🎶 Título del Álbum</label>
+        <label for="titulo" class="form-label">Título del Álbum</label>
         <input type="text" class="form-control" id="titulo" formControlName="titulo" placeholder="Ej: Abbey Road" required>
       </div>
 
       <!-- Año de Lanzamiento -->
       <div class="mb-3">
-        <label for="anio_lanzamiento" class="form-label">📅 Año de Lanzamiento</label>
+        <label for="anio_lanzamiento" class="form-label">Año de Lanzamiento</label>
         <input type="number" class="form-control" id="anio_lanzamiento" formControlName="anio_lanzamiento" min="1900" max="2025" required>
       </div>
 
       <div class="row">
         <!-- Número de Canciones -->
         <div class="col-md-6 mb-3">
-          <label for="canciones" class="form-label">🎼 Número de Canciones</label>
+          <label for="canciones" class="form-label">Número de Canciones</label>
           <input type="number" class="form-control" id="canciones" formControlName="canciones" min="1" required>
         </div>
 
         <!-- Duración Total -->
         <div class="col-md-6 mb-3">
-          <label for="duracion_total" class="form-label">⏳ Duración Total (MM:SS)</label>
+          <label for="duracion_total" class="form-label">Duración Total (MM:SS)</label>
           <input type="time" class="form-control" id="duracion_total" formControlName="duracion_total" required>
         </div>
       </div>
 
       <!-- Género -->
       <div class="mb-3">
-        <label for="genero" class="form-label">🎵 Género</label>
+        <label for="genero" class="form-label">Género</label>
         <input type="text" class="form-control" id="genero" formControlName="genero" placeholder="Ej: Rock, Pop, Jazz" required>
       </div>
 
       <!-- Imagen -->
       <div class="mb-3">
-        <label for="imagen_url" class="form-label">🖼 Imagen del Álbum</label>
+        <label for="imagen_url" class="form-label">Imagen del Álbum</label>
         <input type="text" class="form-control" id="imagen_url" formControlName="imagen_url" placeholder="URL de la imagen del álbum" required>
       </div>
 
       <!-- Botón de envío -->
       <button type="submit" class="btn btn-primary w-100 fw-bold" [disabled]="albumForm.invalid">
-        🚀 Agregar Álbum
+        Agregar Álbum
       </button>
     </form>
   </div>

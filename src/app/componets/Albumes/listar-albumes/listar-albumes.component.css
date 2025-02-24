@@ -1,51 +1,76 @@
-/* Estilo para las tarjetas de músicos */
+/* Estilo para los títulos */
+h1 {
+  color: white;
+  text-align: center;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* Contenedor de los álbumes */
+.albumes-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Tarjeta de músico */
 .musico-card {
-    background-color: white; 
-    border-radius: 10px; 
-    padding: 20px; 
-    margin-bottom: 30px; 
-    color: #2b2b2b;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); 
-    transition: transform 0.3s, box-shadow 0.3s; 
-  }
-  h1{
-    color: white;
-  }
-  .musico-card:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 25px #14accc; 
-  }
-  
-  /* Estilo para las tarjetas de álbumes */
-  .album-card {
-    background-color: #3b3b3b; 
-    border-radius: 8px; 
-    padding: 15px; 
-    margin-bottom: 20px; 
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); 
-  }
-  
-  /* Título de la tarjeta de álbum */
-  .album-card h5 {
-    font-family: 'Anton', sans-serif; 
-    font-size: 1.4rem; 
-    color: #fb2484; 
-  }
-  
-  /* Descripción del álbum */
-  .album-card p {
-    color: #b3b3b3; 
-    font-size: 0.9rem; 
-  }
-  
-  /* Imagen del álbum */
-  .album-card img {
-    width: 35%; 
-    border-radius: 8px; 
-    margin-top: 10px; 
-    transition: transform 0.3s ease; 
-  }
-  
-  .album-card img:hover {
-    transform: scale(1.05); 
-  }
+  background-color: white;
+  border-radius: 12px;
+  padding: 25px;
+  width: 100%;
+  max-width: 100%; 
+  color: #2b2b2b;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.musico-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px #14accc;
+}
+
+/* Contenedor interno para las tarjetas de álbumes */
+.musico-card .d-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  align-items: center;
+  gap: 15px; 
+}
+
+/* Tarjeta de álbum */
+.album-card {
+  background: linear-gradient(135deg, #3b3b3b, #1a1a1a);
+  border-radius: 12px;
+  padding: 20px;
+  width: 300px; 
+  max-width: 100%; 
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.album-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Botones */
+.btn-customA {
+  background: linear-gradient(90deg, #fb2484, #f47c64);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background 0.3s, transform 0.2s;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.btn-customA:hover {
+  background: linear-gradient(90deg, #f47c64, #fb2484);
+  transform: scale(1.05);
+}
