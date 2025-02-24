@@ -17,8 +17,8 @@
             <p><strong>Instrumentos:</strong> {{ musico.instrumentos.join(', ') }}</p>
             <p><strong>Premios:</strong> {{ musico.premios.length ? musico.premios.join(', ') : 'Ninguno' }}</p>
             <p><strong>Ubicación:</strong> {{ musico.ubicacion.ciudad }}, {{ musico.ubicacion.pais }}</p>
-            <p><strong>Coordenadas:</strong> {{ musico.ubicacion.coordenadas.latitud }}, {{ musico.ubicacion.coordenadas.longitud }}</p>
-  
+            <p><strong>Mapa:</strong></p>
+            <div id="map" style="height: 400px; margin-bottom: 20px;"></div>
             <!-- Botón de Editar -->
             <a [routerLink]="['/musicos/editar/', musico.id]" class="btn btn-customM mt-4">
               Editar

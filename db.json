@@ -129,29 +129,6 @@
           "longitud": 2.3522
         }
       }
-    },
-    {
-      "id": 6,
-      "nombre": "Marta",
-      "nacionalidad": "Salvadoreña",
-      "genero": "Pop Rock",
-      "anio_debut": 2580,
-      "instrumentos": [],
-      "premios": [],
-      "pais": "españa",
-      "ciudad": "malaga",
-      "latitud": 0,
-      "longitud": 0,
-      "retirado": false,
-      "imagen_url": "./../assets/albumes/room_for_squares.jpg",
-      "ubicacion": {
-        "pais": "españa",
-        "ciudad": "malaga",
-        "coordenadas": {
-          "latitud": 0,
-          "longitud": 0
-        }
-      }
     }
   ],
   "albumes": [
