@@ -1,7 +1,8 @@
-#map {
+.map-container {
   width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 400px;  /* Asegura que el mapa tenga altura */
+  background-color: #eee; /* Color de fondo para depuración */
+  margin-bottom: 20px;
 }
 
 /* Estilos para las tarjetas de los músicos */

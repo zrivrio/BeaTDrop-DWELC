@@ -1,7 +1,7 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
 import { MusicosService } from '../../../services/musicos.service';
 import { Musico } from '../../../models/musicos';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from '../../navbar/navbar.component';
 
@@ -13,8 +13,14 @@ import { NavbarComponent } from '../../navbar/navbar.component';
 })
 export class ListarMusicosComponent implements OnInit, AfterViewInit {
   musicos: Musico[] = [];
+  private isBrowser: boolean;
 
-  constructor(private musicosService: MusicosService) {}
+  constructor(
+    private musicosService: MusicosService,
+    @Inject(PLATFORM_ID) private platformId: object // Detecta si estamos en el navegador
+  ) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
 
   ngOnInit(): void {
     this.musicosService.getAllMusicos().subscribe(data => {
@@ -24,25 +30,44 @@ export class ListarMusicosComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.mostrarMapas(); // Llamamos a mostrarMapas cuando la vista se haya cargado
+    if (this.isBrowser) {
+      this.mostrarMapas();
+    }
   }
 
   mostrarMapas(): void {
-    // Usar import dinámico para cargar Leaflet solo en el navegador
+    if (!this.isBrowser) {
+      return; // Evita la ejecución en el servidor
+    }
+
     import('leaflet').then(L => {
       this.musicos.forEach(musico => {
         const lat = musico.ubicacion.coordenadas.latitud;
         const lon = musico.ubicacion.coordenadas.longitud;
+        const mapId = `map-${musico.id}`;
 
-        // Crear un mapa para cada músico
-        const map = L.map('map-' + musico.id).setView([lat, lon], 13); // Asumiendo zoom 13
+        const mapElement = document.getElementById(mapId);
+        if (!mapElement) {
+          console.error(`No se encontró el contenedor del mapa con ID: ${mapId}`);
+          return;
+        }
+
+        const map = L.map(mapId).setView([lat, lon], 13);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
 
-        // Crear un marcador para cada ubicación
-        L.marker([lat, lon]).addTo(map)
+        // Definir un icono personalizado
+        const iconoMusico = L.icon({
+          iconUrl: 'assets/icono-musico.png',
+          iconSize: [40, 40],
+          iconAnchor: [20, 40],
+          popupAnchor: [0, -40]
+        });
+
+        // Agregar marcador con icono personalizado
+        L.marker([lat, lon], { icon: iconoMusico }).addTo(map)
           .bindPopup(`<b>${musico.nombre}</b><br>${musico.ubicacion.ciudad}, ${musico.ubicacion.pais}`)
           .openPopup();
       });
@@ -51,7 +76,8 @@ export class ListarMusicosComponent implements OnInit, AfterViewInit {
     });
   }
 
-  deleteMusico(id: number): void {
+  deleteMusico(id: number){
+
     this.musicos = this.musicos.filter(musico => musico.id !== id);
     this.musicosService.deleteMusico(id).subscribe();
   }

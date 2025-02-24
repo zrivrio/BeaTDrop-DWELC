@@ -18,7 +18,8 @@
             <p><strong>Premios:</strong> {{ musico.premios.length ? musico.premios.join(', ') : 'Ninguno' }}</p>
             <p><strong>Ubicación:</strong> {{ musico.ubicacion.ciudad }}, {{ musico.ubicacion.pais }}</p>
             <p><strong>Mapa:</strong></p>
-            <div id="map" style="height: 400px; margin-bottom: 20px;"></div>
+            <div [id]="'map-' + musico.id" class="map-container"></div>
+    
             <!-- Botón de Editar -->
             <a [routerLink]="['/musicos/editar/', musico.id]" class="btn btn-customM mt-4">
               Editar
