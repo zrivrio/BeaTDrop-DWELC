@@ -125,6 +125,29 @@
           "longitud": 2.3522
         }
       }
+    },
+    {
+      "id": 6,
+      "nombre": "Zahira ",
+      "nacionalidad": "Española",
+      "genero": "Pop Rock",
+      "anio_debut": 2015,
+      "instrumentos": [],
+      "premios": [],
+      "pais": "españa",
+      "ciudad": "malaga",
+      "latitud": 0,
+      "longitud": 0,
+      "retirado": false,
+      "imagen_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Charli_XCX_-_Brat_%28album_cover%29.png/1200px-Charli_XCX_-_Brat_%28album_cover%29.png",
+      "ubicacion": {
+        "pais": "españa",
+        "ciudad": "malaga",
+        "coordenadas": {
+          "latitud": 0,
+          "longitud": 0
+        }
+      }
     }
   ],
   "albumes": [
@@ -229,7 +252,7 @@
       "imagen_url": "./../assets/albumes/random_access_memories.jpg"
     },
     {
-      "id": 103,
+      "id": "103",
       "musico_id": 1,
       "titulo": "versos",
       "anio_lanzamiento": 2015,

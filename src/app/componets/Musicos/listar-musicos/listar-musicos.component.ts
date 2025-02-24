@@ -3,10 +3,11 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Musico } from '../../../models/musicos';
 import { MusicosService } from '../../../services/musicos.service';
+import { NavbarComponent } from "../../navbar/navbar.component";
 
 @Component({
   selector: 'app-listar-musicos',
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, NavbarComponent],
   templateUrl: './listar-musicos.component.html',
   styleUrl: './listar-musicos.component.css'
 })

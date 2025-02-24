@@ -55,28 +55,6 @@ body {
     }
   }
   
-  /* Estilos para las tarjetas (cards) */
-  .card {
-    background: white; 
-    border: none; 
-    border-radius: 10px; 
-    overflow: hidden; 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); 
-    transition: transform 0.3s, box-shadow 0.3s; 
-  }
-  
-  /* Efecto hover en las tarjetas */
-  .card:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 25px #14accc; 
-  }
-  
-  /* Efecto hover específico para la clase 'A' */
-  .A:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 25px #fb2484; 
-  }
-  
   /* Estilo para el título de la tarjeta */
   .card-title {
     font-size: 1.8rem; 

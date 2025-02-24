@@ -1,0 +1,29 @@
+.card {
+    border-radius: 12px;
+    background: #f8f9fa;
+  }
+  
+  h1 {
+    font-weight: bold;
+  }
+  
+  .form-label {
+    font-weight: 500;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(90deg, #007bff 0%, #6610f2 100%);
+    border: none;
+    padding: 12px;
+    font-size: 18px;
+  }
+  
+  .btn-primary:hover {
+    background: linear-gradient(90deg, #0056b3 0%, #520dc2 100%);
+  }
+  
+  input, select {
+    border-radius: 8px !important;
+  }
+  
+  

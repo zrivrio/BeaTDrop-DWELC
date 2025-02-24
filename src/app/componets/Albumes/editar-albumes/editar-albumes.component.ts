@@ -6,10 +6,11 @@ import { AlbumesService } from '../../../services/albumes.service';
 import { MusicosService } from '../../../services/musicos.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Album } from '../../../models/albumes';
+import { NavbarComponent } from "../../navbar/navbar.component";
 
 @Component({
   selector: 'app-editar-albumes',
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, NavbarComponent],
   templateUrl: './editar-albumes.component.html',
   styleUrl: './editar-albumes.component.css',
 })

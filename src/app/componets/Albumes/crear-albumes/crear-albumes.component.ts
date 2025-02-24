@@ -6,10 +6,11 @@ import { Musico } from '../../../models/musicos';
 import { CommonModule } from '@angular/common';
 import { Album } from '../../../models/albumes';
 import { Router } from '@angular/router';
+import { NavbarComponent } from "../../navbar/navbar.component";
 
 @Component({
   selector: 'app-crear-albumes',
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, NavbarComponent],
   templateUrl: './crear-albumes.component.html',
   styleUrl: './crear-albumes.component.css'
 })
@@ -82,10 +83,10 @@ export class CrearAlbumesComponent {
     }
   }
 
-  onFileChange(event: any): void {
-    const file = event.target.files[0];
-    this.albumForm.patchValue({
-      imagen_url: file,
-    });
-  }
+  // onFileChange(event: any): void {
+  //   const file = event.target.files[0];
+  //   this.albumForm.patchValue({
+  //     imagen_url: file,
+  //   });
+  // }
 }

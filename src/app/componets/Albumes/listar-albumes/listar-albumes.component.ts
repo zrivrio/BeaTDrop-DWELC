@@ -5,12 +5,13 @@ import { RouterModule } from '@angular/router';
 import { Musico } from '../../../models/musicos';
 import { MusicosService } from '../../../services/musicos.service';
 import { Album } from '../../../models/albumes';
+import { NavbarComponent } from "../../navbar/navbar.component";
 
 
 
 @Component({
   selector: 'app-listar-albumes',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, NavbarComponent],
   templateUrl: './listar-albumes.component.html',
   styleUrl: './listar-albumes.component.css'
 })

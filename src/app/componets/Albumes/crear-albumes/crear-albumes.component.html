@@ -1,40 +1,60 @@
-<div class="container my-4">
-    <form id="album-form" [formGroup]="albumForm" (ngSubmit)="onSubmit()">
-        <h1>Agregar Álbum Nuevo</h1>
-      <div class="mb-4">
-        <label for="musico_id">Músico</label>
-        <select class="form-control" id="musico_id" formControlName="musico_id" required>
+<app-navbar></app-navbar>
+<div class="container my-5">
+  <div class="card shadow-lg p-4">
+    <h1 class="text-center mb-4 text-primary">🎵 Agregar Nuevo Álbum</h1>
+
+    <form [formGroup]="albumForm" (ngSubmit)="onSubmit()">
+      <!-- Músico -->
+      <div class="mb-3">
+        <label for="musico_id" class="form-label">🎤 Músico</label>
+        <select class="form-select" id="musico_id" formControlName="musico_id" required>
           <option value="" disabled selected>Selecciona un músico</option>
           <option *ngFor="let musico of musicos" [value]="musico.id">{{ musico.nombre }}</option>
         </select>
       </div>
-      <div class="mb-4">
-        <label for="titulo">Título</label>
-        <input type="text" class="form-control" id="titulo" formControlName="titulo" placeholder="Título del álbum" required>
+
+      <!-- Título -->
+      <div class="mb-3">
+        <label for="titulo" class="form-label">🎶 Título del Álbum</label>
+        <input type="text" class="form-control" id="titulo" formControlName="titulo" placeholder="Ej: Abbey Road" required>
       </div>
-      <div class="mb-4">
-        <label for="anio_lanzamiento">Año de Lanzamiento</label>
-        <input type="number" class="form-control" id="anio_lanzamiento" formControlName="anio_lanzamiento" placeholder="Año de lanzamiento" required min="1900">
+
+      <!-- Año de Lanzamiento -->
+      <div class="mb-3">
+        <label for="anio_lanzamiento" class="form-label">📅 Año de Lanzamiento</label>
+        <input type="number" class="form-control" id="anio_lanzamiento" formControlName="anio_lanzamiento" min="1900" max="2025" required>
       </div>
-      <div class="mb-4">
-        <label for="canciones">Número de Canciones</label>
-        <input type="number" class="form-control" id="canciones" formControlName="canciones" placeholder="Número de canciones" required min="1">
+
+      <div class="row">
+        <!-- Número de Canciones -->
+        <div class="col-md-6 mb-3">
+          <label for="canciones" class="form-label">🎼 Número de Canciones</label>
+          <input type="number" class="form-control" id="canciones" formControlName="canciones" min="1" required>
+        </div>
+
+        <!-- Duración Total -->
+        <div class="col-md-6 mb-3">
+          <label for="duracion_total" class="form-label">⏳ Duración Total (MM:SS)</label>
+          <input type="time" class="form-control" id="duracion_total" formControlName="duracion_total" required>
+        </div>
       </div>
-      <div class="mb-4">
-        <label for="canciones">Duracion del Album</label>
-        <input type="time" class="form-control" id="duracion_total" formControlName="duracion_total" placeholder="Duracion del album (MM:SS)" required>
+
+      <!-- Género -->
+      <div class="mb-3">
+        <label for="genero" class="form-label">🎵 Género</label>
+        <input type="text" class="form-control" id="genero" formControlName="genero" placeholder="Ej: Rock, Pop, Jazz" required>
       </div>
-      <div class="mb-4">
-        <label for="genero">Género</label>
-        <input type="text" class="form-control" id="genero" formControlName="genero" placeholder="Género del álbum" required>
+
+      <!-- Imagen -->
+      <div class="mb-3">
+        <label for="imagen_url" class="form-label">🖼 Imagen del Álbum</label>
+        <input type="text" class="form-control" id="imagen_url" formControlName="imagen_url" placeholder="URL de la imagen del álbum" required>
       </div>
-      <div class="mb-4">
-        <label for="imagen_url" class="form-label">Imagen del álbum</label>
-        <input type="text" class="form-control" id="imagen_url" formControlName="imagen_url" placeholder="URL de la Imagen" required>
-       <!-- <input type="file" class="form-control-file" id="imagen_url" (change)="onFileChange($event)">-->
-      </div>
-  
-      <button type="submit" class="btn btn-primary" [disabled]="albumForm.invalid">Agregar Álbum</button>
+
+      <!-- Botón de envío -->
+      <button type="submit" class="btn btn-primary w-100 fw-bold" [disabled]="albumForm.invalid">
+        🚀 Agregar Álbum
+      </button>
     </form>
   </div>
-
+</div>
