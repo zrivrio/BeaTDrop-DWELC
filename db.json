@@ -3,8 +3,8 @@
     {
       "id": "1",
       "nombre": "John Mayer",
-      "genero": "Pop Rock",
       "nacionalidad": "Estadounidense",
+      "genero": "Pop Rock",
       "anio_debut": 1998,
       "instrumentos": [
         "Guitarra",
@@ -15,6 +15,10 @@
         "Grammy",
         "Billboard Music Award"
       ],
+      "pais": "Estados Unidos",
+      "ciudad": "Bridgeport",
+      "latitud": 41.1865,
+      "longitud": -73.1952,
       "retirado": false,
       "imagen_url": "./../assets/musicos/jhon_mayer.jpeg",
       "ubicacion": {
@@ -128,10 +132,10 @@
     },
     {
       "id": 6,
-      "nombre": "Zahira ",
-      "nacionalidad": "Española",
+      "nombre": "Marta",
+      "nacionalidad": "Salvadoreña",
       "genero": "Pop Rock",
-      "anio_debut": 2015,
+      "anio_debut": 2580,
       "instrumentos": [],
       "premios": [],
       "pais": "españa",
@@ -139,7 +143,7 @@
       "latitud": 0,
       "longitud": 0,
       "retirado": false,
-      "imagen_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Charli_XCX_-_Brat_%28album_cover%29.png/1200px-Charli_XCX_-_Brat_%28album_cover%29.png",
+      "imagen_url": "./../assets/albumes/room_for_squares.jpg",
       "ubicacion": {
         "pais": "españa",
         "ciudad": "malaga",

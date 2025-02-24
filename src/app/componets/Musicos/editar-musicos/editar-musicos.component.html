@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <div class="container my-4">
-  <h1 class="text-center">Editar Músico</h1>
+  <h1 class="text-center">Agregar Músico Nuevo</h1>
 
   <form [formGroup]="musicoForm" (ngSubmit)="onSubmit()">
     <!-- Datos Personales -->
@@ -57,28 +57,28 @@
       </div>
     </fieldset>
 
-    <!-- Ubicación -->
-    <fieldset class="border p-3 mb-4">
-      <legend class="fw-bold">Ubicación</legend>
-      <div class="row">
-        <div class="col-md-4 mb-3">
-          <label for="pais">País</label>
-          <input type="text" class="form-control" id="pais" formControlName="pais" required>
-        </div>
-        <div class="col-md-4 mb-3">
-          <label for="ciudad">Ciudad</label>
-          <input type="text" class="form-control" id="ciudad" formControlName="ciudad" required>
-        </div>
-        <div class="col-md-2 mb-3">
-          <label for="latitud">Latitud</label>
-          <input type="number" class="form-control" id="latitud" formControlName="latitud" required>
-        </div>
-        <div class="col-md-2 mb-3">
-          <label for="longitud">Longitud</label>
-          <input type="number" class="form-control" id="longitud" formControlName="longitud" required>
-        </div>
+   <!-- Ubicación -->
+   <fieldset class="border p-3 mb-4">
+    <legend class="fw-bold">Ubicación</legend>
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <label for="pais">País</label>
+        <input type="text" class="form-control" id="pais" formControlName="pais" required>
       </div>
-    </fieldset>
+      <div class="col-md-4 mb-3">
+        <label for="ciudad">Ciudad</label>
+        <input type="text" class="form-control" id="ciudad" formControlName="ciudad" required>
+      </div>
+      <div class="col-md-2 mb-3">
+        <label for="latitud">Latitud</label>
+        <input type="number" class="form-control" id="latitud" formControlName="latitud" required>
+      </div>
+      <div class="col-md-2 mb-3">
+        <label for="longitud">Longitud</label>
+        <input type="number" class="form-control" id="longitud" formControlName="longitud" required>
+      </div>
+    </div>
+  </fieldset>
 
     <!-- Estado de retirado -->
     <fieldset class="border p-3 mb-4">
@@ -94,11 +94,11 @@
       <legend class="fw-bold">Imagen</legend>
       <div class="mb-3">
         <label for="imagen_url" class="form-label">Imagen del músico</label>
-        <input type="text" class="form-control" id="imagen_url" formControlName="imagen_url" placeholder="URL de la Imagen">
+       <input type="text" class="form-control" id="imagen_url" formControlName="imagen_url" placeholder="URL de la Imagen">
       </div>
     </fieldset>
 
     <!-- Botón de envío -->
-    <button type="submit" class="btn btn-primary w-100" [disabled]="musicoForm.invalid">Actualizar Músico</button>
+    <button type="submit" class="btn btn-primary w-100" [disabled]="musicoForm.invalid">Agregar Músico</button>
   </form>
 </div>

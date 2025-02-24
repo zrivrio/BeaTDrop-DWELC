@@ -23,9 +23,9 @@
             <a [routerLink]="['/musicos/editar/', musico.id]" class="btn btn-customM mt-4">
               Editar
             </a>
-            <a [routerLink]="['/musicos/eliminar', musico.id]" class="btn btn-customM mt-4">
+            <button  class="btn btn-customM mt-4" (click)="deleteMusico(musico.id)">
               Eliminar
-            </a>
+            </button>
           </div>
       </div>
     </div>

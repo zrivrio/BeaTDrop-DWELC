@@ -44,6 +44,7 @@ export class ListarAlbumesComponent implements OnInit {
   // Función para eliminar los álbumes
   deleteAlbum(id: number): void {
    this.albumes = this.albumes.filter((album) => album.id !== id);
+  this.albumesService.deleteAlbum(id).subscribe();
    console.log(this.albumes);
   }
 

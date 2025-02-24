@@ -23,4 +23,9 @@ export class ListarMusicosComponent {
     });
   }
 
+  deleteMusico(id: number): void {
+    this.musicos = this.musicos.filter(musico => musico.id !== id);
+     this.musicosService.deleteMusico(id).subscribe();
+  }
+
 }

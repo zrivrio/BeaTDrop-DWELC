@@ -42,7 +42,7 @@ export class MusicosService {
   
     updateMusico(musico: Musico) { return this.http.put<Musico>(`${this.url}/${musico.id}`, musico); }
   
-    deleteMusico(id: string) { return this.http.delete(`${this.url}/${id}`); }
+    deleteMusico(id: number) { return this.http.delete(`${this.url}/${id}`); }
 
 
 }
