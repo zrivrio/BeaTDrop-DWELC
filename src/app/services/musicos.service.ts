@@ -36,7 +36,7 @@ export class MusicosService {
 
    getAllMusicos() {return this.http.get<Musico[]>(this.url)}
   
-    getMusico(id: string) { return this.http.get<Musico>(`${this.url}/${id}`); }
+    getMusico(id: number) { return this.http.get<Musico>(`${this.url}/${id}`); }
   
     addMusico(musico: Musico) { return this.http.post<Musico>(this.url, musico); }
   

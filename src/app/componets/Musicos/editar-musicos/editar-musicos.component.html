@@ -1,47 +1,104 @@
-<!--<div class="container my-4">
-    <h1>Agregar Músico Nuevo</h1>
-    <form [formGroup]="musicoForm" (ngSubmit)="onSubmit()">
-      <div class="mb-4">
-        <label for="nombre">Nombre</label>
-        <input type="text" class="form-control" id="nombre" formControlName="nombre" placeholder="Nombre" required>
+<app-navbar></app-navbar>
+<div class="container my-4">
+  <h1 class="text-center">Editar Músico</h1>
+
+  <form [formGroup]="musicoForm" (ngSubmit)="onSubmit()">
+    <!-- Datos Personales -->
+    <fieldset class="border p-3 mb-4">
+      <legend class="fw-bold">Datos Personales</legend>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="nombre">Nombre</label>
+          <input type="text" class="form-control" id="nombre" formControlName="nombre" placeholder="Nombre" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="nacionalidad">Nacionalidad</label>
+          <input type="text" class="form-control" id="nacionalidad" formControlName="nacionalidad" placeholder="Nacionalidad" required>
+        </div>
       </div>
-      <div class="mb-4">
-        <label for="genero">Género</label>
-        <input type="text" class="form-control" id="genero" formControlName="genero" placeholder="Género" required>
+    </fieldset>
+
+    <!-- Datos Musicales -->
+    <fieldset class="border p-3 mb-4">
+      <legend class="fw-bold">Datos Musicales</legend>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="genero">Género</label>
+          <input type="text" class="form-control" id="genero" formControlName="genero" placeholder="Género" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="anio_debut">Año del debut</label>
+          <input type="number" class="form-control" id="anio_debut" formControlName="anio_debut" required>
+        </div>
+
+        <!-- 🎸 Instrumentos dinámicos -->
+        <div class="col-md-12 mb-3">
+          <label>Instrumentos</label>
+          <div formArrayName="instrumentos">
+            <div *ngFor="let instrumento of instrumentos.controls; let i = index" class="d-flex mb-2">
+              <input type="text" class="form-control me-2" [formControlName]="i" required>
+              <button type="button" class="btn btn-danger btn-sm" (click)="eliminarInstrumento(i)">✖</button>
+            </div>
+          </div>
+          <button type="button" class="btn btn-success btn-sm mt-2" (click)="agregarInstrumento()">+ Agregar Instrumento</button>
+        </div>
+
+        <!-- 🏆 Premios dinámicos -->
+        <div class="col-md-12 mb-3">
+          <label>Premios</label>
+          <div formArrayName="premios">
+            <div *ngFor="let premio of premios.controls; let i = index" class="d-flex mb-2">
+              <input type="text" class="form-control me-2" [formControlName]="i" required>
+              <button type="button" class="btn btn-danger btn-sm" (click)="eliminarPremio(i)">✖</button>
+            </div>
+          </div>
+          <button type="button" class="btn btn-success btn-sm mt-2" (click)="agregarPremio()">+ Agregar Premio</button>
+        </div>
       </div>
-      <div class="mb-4">
-        <label for="nacionalidad">Nacionalidad</label>
-        <input type="text" class="form-control" id="nacionalidad" formControlName="nacionalidad" placeholder="Nacionalidad" required>
+    </fieldset>
+
+    <!-- Ubicación -->
+    <fieldset class="border p-3 mb-4">
+      <legend class="fw-bold">Ubicación</legend>
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <label for="pais">País</label>
+          <input type="text" class="form-control" id="pais" formControlName="pais" required>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="ciudad">Ciudad</label>
+          <input type="text" class="form-control" id="ciudad" formControlName="ciudad" required>
+        </div>
+        <div class="col-md-2 mb-3">
+          <label for="latitud">Latitud</label>
+          <input type="number" class="form-control" id="latitud" formControlName="latitud" required>
+        </div>
+        <div class="col-md-2 mb-3">
+          <label for="longitud">Longitud</label>
+          <input type="number" class="form-control" id="longitud" formControlName="longitud" required>
+        </div>
       </div>
-      <div class="mb-4">
-        <label for="anio_debut">Año del debut</label>
-        <input type="number" class="form-control" id="anio_debut" formControlName="anio_debut" placeholder="Año del debut" required>
+    </fieldset>
+
+    <!-- Estado de retirado -->
+    <fieldset class="border p-3 mb-4">
+      <legend class="fw-bold">Estado</legend>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="retirado" formControlName="retirado">
+        <label class="form-check-label" for="retirado">Retirado</label>
       </div>
-      <div class="mb-4">
-        <label for="instrumentos">Instrumentos</label>
-        <input type="text" class="form-control" id="instrumentos" formControlName="instrumentos" placeholder="Instrumentos musicales" required>
-      </div>
-      <div class="mb-4">
-        <label for="premios">Premios</label>
-        <input type="text" class="form-control" id="premios" formControlName="premios" placeholder="Premios Ganados" required>
-      </div>
-      <div class="mb-4">
-        <label for="retirado">Retirado</label>
-        <input type="checkbox" class="form-control" id="retirado" formControlName="retirado">
-      </div>
-      <div class="mb-4">
-        <label for="pais">País</label>
-        <input type="text" class="form-control" id="pais" formControlName="pais" placeholder="País" required>
-      </div>
-      <div class="mb-4">
-        <label for="ciudad">Ciudad</label>
-        <input type="text" class="form-control" id="ciudad" formControlName="ciudad" placeholder="Ciudad" required>
-      </div>
-      <div class="mb-4">
+    </fieldset>
+
+    <!-- Imagen del músico -->
+    <fieldset class="border p-3 mb-4">
+      <legend class="fw-bold">Imagen</legend>
+      <div class="mb-3">
         <label for="imagen_url" class="form-label">Imagen del músico</label>
-        <input type="file" class="form-control-file" id="imagen_url" (change)="onFileChange($event)">
+        <input type="text" class="form-control" id="imagen_url" formControlName="imagen_url" placeholder="URL de la Imagen">
       </div>
-  
-      <button type="submit" class="btn btn-primary" [disabled]="musicoForm.invalid">Agregar Músico</button>
-    </form>
-  </div> -->
+    </fieldset>
+
+    <!-- Botón de envío -->
+    <button type="submit" class="btn btn-primary w-100" [disabled]="musicoForm.invalid">Actualizar Músico</button>
+  </form>
+</div>

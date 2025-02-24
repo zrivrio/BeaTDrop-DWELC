@@ -1,0 +1,47 @@
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  fieldset {
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+  }
+  
+  legend {
+    font-size: 18px;
+    color: #007bff;
+    font-weight: bold;
+    padding: 0 10px;
+  }
+  
+  .form-control,
+  .form-select {
+    border-radius: 6px;
+    padding: 8px;
+  }
+  
+  .form-check-input {
+    transform: scale(1.2);
+    margin-left: 10px;
+  }
+  
+  .btn-primary {
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 6px;
+  }
+  
+  .img-thumbnail {
+    display: block;
+    margin-top: 10px;
+    border-radius: 6px;
+  }
+  
