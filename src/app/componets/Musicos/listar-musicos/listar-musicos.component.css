@@ -1,115 +1,100 @@
-.map-container {
-  width: 100%;
-  height: 400px;  /* Asegura que el mapa tenga altura */
-  background-color: #eee; /* Color de fondo para depuración */
+h1 {
+  color: white;
+  text-align: center;
+  font-size: 2.5rem;
+  text-transform: uppercase;
   margin-bottom: 20px;
 }
 
-/* Estilos para las tarjetas de los músicos */
-.musicos-card {
-    background-color: white; 
-    border-radius: 10px;
-    padding: 20px;
-    margin-left: 5px; 
-    margin-bottom: 30px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); 
-    transition: transform 0.3s, box-shadow 0.3s; 
-  }
+/* Contenedor de tarjetas de músicos */
+.musicos-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
 
-  h1{
-    color: white;
-  }
-  
-  /* Efecto hover para la tarjeta de los músicos */
-  .musicos-card:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 25px #fb2484; 
-  }
-  
-  /* Estilos para el título dentro del contenedor de músicos */
-  .musicos-container h5 {
-    font-family: 'Anton', sans-serif; 
-    font-size: 1.8rem; 
-    color: #14accc; 
-  }
-  
-  /* Estilos para el párrafo dentro del contenedor de músicos */
-  .musicos-container p {
-    color: #2b2b2b; 
-    font-size: 0.95rem; 
-    margin-bottom: 10px; 
-  }
-  
-  /* Estilos para la imagen dentro de las tarjetas de músicos */
-  .card-img-top {
-    width: 50%; 
-    border-radius: 8px; 
-    margin-top: 10px; 
-    transition: transform 0.3s ease; 
-  }
-  
-  /* Estilos para el formulario de los músicos */
-  #musicos-form {
-    background-color: #3b3b3b; 
-    border-radius: 12px; 
-    padding: 35px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); 
-    color: #fff; 
-    max-width: 600px;
-    margin: 0 auto; 
-  }
-  
-  /* Estilos para las etiquetas dentro del formulario */
-  #musicos-form label {
-    font-weight: bold; 
-    color: #1174d4; 
-    font-size: 1.1rem; 
-    margin-bottom: 0px; 
-  }
-  
-  /* Estilos para los campos de entrada (input) y selección (select) en el formulario */
-  #musicos-form input,
-  #musicos-form select {
-    background-color: #fff; 
-    color: #333; 
-    border: 1px solid #757575; 
-    border-radius: 8px; 
-    padding: 12px; 
-    font-size: 1rem; 
-    width: 100%; 
-    height: 100%;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  /* Estilos para el botón dentro del formulario */
-  #musicos-form button {
-    background: linear-gradient(90deg, #1174d4, #53e2ff);
-    color: #fff;
-    border: none; 
-    border-radius: 50px; 
-    padding: 12px 24px;
-    font-weight: bold;
-    font-size: 1.1rem; 
-    width: 100%; 
-    transition: background 0.4s, transform 0.2s;
-  }
-  
-  /* Efecto hover en el botón del formulario */
-  #musicos-form button:hover {
-    transform: scale(1.05);
-    background: linear-gradient(90deg, #53e2ff, #1174d4); 
-    cursor: pointer; 
-  }
-  
-  /* Espacio inferior dentro del formulario para los elementos con clase .mb-3 */
-  #musicos-form .mb-3 {
-    margin-bottom: 25px;
-  }
-  
-  /* Estilos adicionales para los campos de entrada y selección */
-  #musicos-form input,
-  #musicos-form select {
-    font-size: 1.1rem; 
-    padding: 14px; 
-  }
-  
+/* Tarjeta de músico */
+.musico-card {
+  background: linear-gradient(135deg, #ffffff, #f2f2f2);
+  border-radius: 12px;
+  padding: 20px;
+  width: 100%;
+  max-width: 320px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Efecto hover */
+.musico-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Imágenes con el mismo tamaño */
+.card-img-top {
+  width: 100%;
+  height: 250px;  /* Altura fija */
+  object-fit: cover;  /* Asegura que la imagen se recorte sin deformarse */
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card-img-top:hover {
+  transform: scale(1.05);
+}
+
+/* Cuerpo de la tarjeta con altura mínima para uniformidad */
+.card-body {
+  padding: 15px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 250px;  /* Asegura que todas las tarjetas tengan el mismo tamaño */
+}
+
+/* Títulos */
+.card-title {
+  font-size: 1.5rem;
+  color: #14accc;
+  font-weight: bold;
+}
+
+/* Contenedor de botones alineados */
+.card-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto; /* Empuja los botones hacia abajo */
+}
+
+/* Botones */
+.btn-customM {
+  background: linear-gradient(90deg, #14accc, #74bfce);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background 0.3s, transform 0.2s;
+  display: inline-block;
+  margin: 10px;
+}
+
+.btn-customM:hover {
+  background: linear-gradient(90deg, #14accc, #74bfce);
+  transform: scale(1.05);
+}
+
+/* Mapa */
+.map-container {
+  width: 100%;
+  height: 300px;
+  background-color: #ddd;
+  border-radius: 8px;
+  margin-top: 10px;
+}
