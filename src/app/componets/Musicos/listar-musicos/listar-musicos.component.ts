@@ -4,28 +4,37 @@ import { Musico } from '../../../models/musicos';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from '../../navbar/navbar.component';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-listar-musicos',
-  imports: [CommonModule, RouterModule, NavbarComponent],
+  imports: [CommonModule, RouterModule, NavbarComponent, ReactiveFormsModule],
   templateUrl: './listar-musicos.component.html',
   styleUrls: ['./listar-musicos.component.css']
 })
 export class ListarMusicosComponent implements OnInit, AfterViewInit {
   musicos: Musico[] = [];
   private isBrowser: boolean;
+  filtrosForm: FormGroup; 
+  cargando: boolean = true; 
 
   constructor(
     private musicosService: MusicosService,
-    @Inject(PLATFORM_ID) private platformId: object // Detecta si estamos en el navegador
+    @Inject(PLATFORM_ID) private platformId: object, // Detecta si estamos en el navegador
+    private fb: FormBuilder
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
+   
+    this.filtrosForm = this.fb.group({
+      busqueda: [''],
+    });
   }
 
   ngOnInit(): void {
     this.musicosService.getAllMusicos().subscribe(data => {
       console.log("Músicos:", data);
       this.musicos = data;
+      this.cargando = false;
     });
   }
 
@@ -80,4 +89,14 @@ export class ListarMusicosComponent implements OnInit, AfterViewInit {
     this.musicos = this.musicos.filter(musico => musico.id !== id);
     this.musicosService.deleteMusico(id).subscribe();
   }
+
+  getFilteredMusicos(): Musico[] {
+    const busqueda = this.filtrosForm.value.busqueda.toLowerCase();
+    return this.musicos.filter(musico =>
+      musico.nombre.toLowerCase().includes(busqueda) ||
+      musico.genero.toLowerCase().includes(busqueda) ||
+      musico.nacionalidad.toLowerCase().includes(busqueda)
+    );
+  }
+  
 }

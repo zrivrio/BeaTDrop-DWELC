@@ -3,6 +3,20 @@
   <h1>Álbumes</h1>
   <a [routerLink]="['/albumes/crear']" class="btn btn-customA">Crear Álbum</a>
 
+  <!-- Formulario reactivo para los filtros -->
+  <form [formGroup]="filtrosForm" class="filtros-container mt-3">
+    <input
+      formControlName="busqueda"
+      type="text"
+      placeholder="Buscar álbum..."
+      class="form-control mb-3"
+    />
+  </form>
+
+  <div *ngIf="cargando" class="text-center">
+    <p>Cargando álbumes...</p>
+  </div>
+
   <div class="albumes-container mt-5">
     <!-- Iterar sobre cada músico -->
     <div *ngFor="let musico of musicos" class="musico-card mb-5">

@@ -1,29 +1,44 @@
 <app-navbar></app-navbar>
 
 <div class="container">
-    <h1>Músicos</h1>
-    <a routerLink="/musicos/crear" class="btn btn-customM">Agregar Músico</a>
-    <div class="musicos-container mt-5 d-flex flex-wrap justify-content-center">
-      <div *ngFor="let musico of musicos" class="musico-card col-lg-3 col-md-4 col-sm-6">
-          <img [src]="musico.imagen_url" [alt]="musico.nombre" class="card-img-top">
-          <div class="card-body">
-              <h5 class="card-title">{{ musico.nombre }}</h5>
-              <p><strong>Género:</strong> {{ musico.genero }}</p>
-              <p><strong>Nacionalidad:</strong> {{ musico.nacionalidad }}</p>
-              <p><strong>Año de Debut:</strong> {{ musico.anio_debut }}</p>
-              <p><strong>Retirado:</strong> {{ musico.retirado ? 'Sí' : 'No' }}</p>
-              <p><strong>Instrumentos:</strong> {{ musico.instrumentos.join(', ') }}</p>
-              <p><strong>Premios:</strong> {{ musico.premios.length ? musico.premios.join(', ') : 'Ninguno' }}</p>
-              <p><strong>Ubicación:</strong> {{ musico.ubicacion.ciudad }}, {{ musico.ubicacion.pais }}</p>
-              <p><strong>Mapa:</strong></p>
-              <div [id]="'map-' + musico.id" class="map-container"></div>
-  
-              <!-- Contenedor de botones alineados -->
-              <div class="card-buttons">
-                  <a [routerLink]="['/musicos/editar/', musico.id]" class="btn btn-customM">Editar</a>
-                  <button class="btn btn-customM" (click)="deleteMusico(musico.id)">Eliminar</button>
-              </div>
-          </div>
-      </div>
-  </div>  
+  <h1>Músicos</h1>
+  <a routerLink="/musicos/crear" class="btn btn-customM">Agregar Músico</a>
+
+  <!-- Filtro de búsqueda -->
+  <form [formGroup]="filtrosForm" class="filtros-container mt-3">
+    <input
+      formControlName="busqueda"
+      type="text"
+      placeholder="Buscar músico..."
+      class="form-control mb-3"
+    />
+  </form>
+
+  <div *ngIf="cargando" class="text-center">
+    <p>Cargando músicos...</p>
   </div>
+
+  <div class="musicos-container mt-5 d-flex flex-wrap justify-content-center">
+    <!-- Iterar sobre los músicos filtrados -->
+    <div *ngFor="let musico of getFilteredMusicos()" class="musico-card col-lg-3 col-md-4 col-sm-6">
+      <img [src]="musico.imagen_url" [alt]="musico.nombre" class="card-img-top" loading="lazy">
+      <div class="card-body">
+        <h5 class="card-title">{{ musico.nombre }}</h5>
+        <p><strong>Género:</strong> {{ musico.genero }}</p>
+        <p><strong>Nacionalidad:</strong> {{ musico.nacionalidad }}</p>
+        <p><strong>Año de Debut:</strong> {{ musico.anio_debut }}</p>
+        <p><strong>Retirado:</strong> {{ musico.retirado ? 'Sí' : 'No' }}</p>
+        <p><strong>Instrumentos:</strong> {{ musico.instrumentos.join(', ') }}</p>
+        <p><strong>Premios:</strong> {{ musico.premios.length ? musico.premios.join(', ') : 'Ninguno' }}</p>
+        <p><strong>Ubicación:</strong> {{ musico.ubicacion.ciudad }}, {{ musico.ubicacion.pais }}</p>
+        <p><strong>Mapa:</strong></p>
+        <div [id]="'map-' + musico.id" class="map-container"></div>
+
+        <div class="card-buttons">
+          <a [routerLink]="['/musicos/editar/', musico.id]" class="btn btn-customM">Editar</a>
+          <button class="btn btn-customM" (click)="deleteMusico(musico.id)">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
