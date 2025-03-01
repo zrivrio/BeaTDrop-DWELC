@@ -17,6 +17,7 @@ export class ListarMusicosComponent implements OnInit, AfterViewInit {
   private isBrowser: boolean;
   filtrosForm: FormGroup; 
   cargando: boolean = true; 
+  private L: any;
 
   constructor(
     private musicosService: MusicosService,
@@ -38,18 +39,17 @@ export class ListarMusicosComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngAfterViewInit(): void {
+  async ngAfterViewInit(): Promise<void> {
     if (this.isBrowser) {
+      this.L = await import('leaflet');
       this.mostrarMapas();
     }
   }
 
-  mostrarMapas(): void {
-    if (!this.isBrowser) {
-      return; // Evita la ejecución en el servidor
-    }
+  private mostrarMapas(): void {
+    if (!this.isBrowser || !this.L) return;
 
-    import('leaflet').then(L => {
+    setTimeout(() => {
       this.musicos.forEach(musico => {
         const lat = musico.ubicacion.coordenadas.latitud;
         const lon = musico.ubicacion.coordenadas.longitud;
@@ -61,28 +61,24 @@ export class ListarMusicosComponent implements OnInit, AfterViewInit {
           return;
         }
 
-        const map = L.map(mapId).setView([lat, lon], 13);
+        const map = this.L.map(mapId).setView([lat, lon], 13);
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        this.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
 
-        // Definir un icono personalizado
-        const iconoMusico = L.icon({
+        const iconoMusico = this.L.icon({
           iconUrl: 'assets/marcador.png',
           iconSize: [40, 40],
           iconAnchor: [20, 40],
           popupAnchor: [0, -40]
         });
 
-        // Agregar marcador con icono personalizado
-        L.marker([lat, lon], { icon: iconoMusico }).addTo(map)
+        this.L.marker([lat, lon], { icon: iconoMusico }).addTo(map)
           .bindPopup(`<b>${musico.nombre}</b><br>${musico.ubicacion.ciudad}, ${musico.ubicacion.pais}`)
           .openPopup();
       });
-    }).catch(err => {
-      console.error('Error cargando Leaflet:', err);
-    });
+    }, 100);
   }
 
   deleteMusico(id: number){
